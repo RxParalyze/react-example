@@ -1,4 +1,5 @@
 import Expenses from './components/Expenses/Expenses';
+import NewExpense from './components/NewExpenses/NewExpense';
 import Card from './components/UI/Card';
 
 function App() {
@@ -29,11 +30,21 @@ function App() {
     },
   ];
 
+  const addExpenseHandler = expense => {
+    console.log('In App.js');
+    console.log(expense);
+  }
+
+  const addFilterHandler = filter => {
+    console.log('Added Filter');
+    console.log(filter);
+  }
+
   return (
     <div>
-      <h2>Let's get started!</h2>
+      <NewExpense onAddExpense={addExpenseHandler} />
         <Card className="expenses">
-          <Expenses expenses={expenses} />
+          <Expenses expenses={expenses} onAddFilter={addFilterHandler} />
         </Card>
     </div>
   );
